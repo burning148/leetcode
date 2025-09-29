@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class 零钱兑换 {
     public int coinChange(int[] coins, int amount) {
+        if (amount == 0) return 0;
         int[] dp = new int[amount + 1];
         // 初始化数组为一个无法达到的值
         Arrays.fill(dp, amount + 1);

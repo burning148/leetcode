@@ -1,7 +1,5 @@
 package 双指针;
 
-import com.sun.org.apache.xpath.internal.WhitespaceStrippingElementMatcher;
-
 public class 接雨水 {
     public int trap(int[] height) {
         int res = 0;

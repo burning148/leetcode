@@ -17,4 +17,21 @@ public class 删除有序数组中的重复项 {
         // 长度等于索引 + 1
         return slow + 1;
     }
+
+
+    public int removeDuplicates2(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+        int slow = 0;
+        for (int fast = 0; fast < nums.length; fast++) {
+            if (nums[slow] != nums[fast]) {
+                slow++;
+                nums[slow] = nums[fast];
+            }
+        }
+
+        // 长度等于索引 + 1
+        return slow + 1;
+    }
 }

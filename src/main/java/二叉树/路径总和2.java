@@ -27,4 +27,25 @@ public class 路径总和2 {
         path.remove(path.size() - 1); // 回溯
     }
 
+//    public static void main(String[] args) {
+//        TreeNode root = buildTree(new int[]{5, 4, 8, 11, -1, 13, 4, 7, 2, -1, -1, 5, 1});
+//        System.out.println(pathSum(root, 22));
+//    }
+
+
+    public static TreeNode buildTree(int[] arr) {
+        return buildTree(arr, 0);
+    }
+
+    private static TreeNode buildTree(int[] arr, int index) {
+        if (index >= arr.length || arr[index] == -1) {
+            return null;
+        }
+
+        TreeNode root = new TreeNode(arr[index]);
+        root.left = buildTree(arr, 2 * index + 1);
+        root.right = buildTree(arr, 2 * index + 1);
+        return root;
+    }
+
 }

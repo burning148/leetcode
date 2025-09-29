@@ -2,15 +2,24 @@ package 链表;
 
 public class 删除链表的中间结点 {
     public ListNode deleteMiddle(ListNode head) {
-        ListNode dummy = new ListNode(-1, head);
-        ListNode slow = dummy;
-        ListNode fast = dummy;
-        while (fast.next != null && fast.next.next != null) { // 跳出循环时fast再跳一次才为空,这与找链表的中间节点是不同的
+        // 链表为空或只有一个节点
+        if (head == null || head.next == null) {
+            return null;
+        }
+
+        ListNode slow = head;
+        ListNode fast = head;
+        ListNode prev = null; // 记录 slow 前一个节点
+
+        while (fast != null && fast.next != null) {
+            prev = slow;
             slow = slow.next;
             fast = fast.next.next;
         }
-        slow.next = slow.next.next; // 此时slow再跳一步才到中点，slow为中点的上一个节点
-        return dummy.next;
+        // 删除中间节点
+        prev.next = slow.next;
+
+        return head;
     }
 
 

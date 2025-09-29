@@ -20,4 +20,8 @@ public class 交替打印3 {
             }
         });
     }
+
+    private static void print(String name, int state) {
+
+    }
 }

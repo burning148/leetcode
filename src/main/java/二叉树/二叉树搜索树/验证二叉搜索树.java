@@ -1,5 +1,6 @@
 package 二叉树.二叉树搜索树;
 
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 import 二叉树.TreeNode;
 
 import java.util.ArrayList;
@@ -7,20 +8,16 @@ import java.util.List;
 
 public class 验证二叉搜索树 {
 
-    private long pre = Long.MIN_VALUE;
     public boolean isValidBST(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-        if (!isValidBST(root.left)) {
-            return false;
-        }
-        if (root.val <= pre) {
-            return false;
-        }
-        pre = root.val;
+        if (root == null) return true;
+        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
 
-        return isValidBST(root.right);
+    private boolean isValidBST(TreeNode node, long min, long max) {
+        if (node == null) return true;
+        if (node.val <= min || node.val >= max) return false;
+
+        return isValidBST(node.left, min, node.val) && isValidBST(node.right, node.val, max);
     }
 
 

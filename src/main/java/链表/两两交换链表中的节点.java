@@ -7,11 +7,11 @@ public class 两两交换链表中的节点 {
         if (head == null || head.next == null) {
             return head;
         }
+        // 获取要交换的两个节点
         ListNode first = head;
         ListNode second = head.next;
-        ListNode other = head.next.next;
-
-        first.next = swapPairs(other);
+        // 递归交换后序节点
+        first.next = swapPairs(second.next);
         second.next = first;
 
         return second;

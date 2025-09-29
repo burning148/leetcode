@@ -31,4 +31,25 @@ public class 删除链表的倒数第n个节点 {
         }
         return p2;
     }
+
+
+    public ListNode removeNthFromEnd2(ListNode head, int n) {
+        ListNode dummy = new ListNode(-1, head);
+        ListNode slow = dummy, fast = dummy;
+
+        // 快指针走 n + 1 步
+        for (int i = 0; i <= n; i++) {
+            fast = fast.next;
+        }
+
+
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        slow.next = slow.next.next;
+
+        return dummy.next;
+    }
 }
