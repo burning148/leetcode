@@ -1,10 +1,12 @@
+package 链表;
+
 class ListNode {
     int val;
     ListNode next;
     ListNode(int val) { this.val = val; }
 }
 
-public class Main {
+public class K个一组反转链表2 {
 
     public static ListNode reverseKGroup(ListNode head, int k) {
         if (head == null || k <= 1) return head;
